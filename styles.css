@@ -48,10 +48,20 @@
 
 #question-number {
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row;
   height: fit-content;
   justify-content: center;
-  margin: 0 6rem;
+  margin: 0 300rem; */
+
+  margin: 0 4rem;
+  overflow: visible;
+  overflow-x: auto;
+  justify-content: start;
+}
+
+#question-number span {
+  margin: 0 0.5rem;
+  text-align: center;
 }
 
 .ques-style {
@@ -139,16 +149,26 @@ footer button:hover {
   text-align: center;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 800px) {
   body {
     font-size: 1rem;
     margin: 0;
+  }
+  .ques-style:hover,
+  .ques-style:active {
+    background-color: var(--light);
+    color: var(--main);
+    cursor: pointer;
   }
   .progress-bar {
     display: flex;
     width: 10rem;
     height: 1rem;
-    background: linear-gradient(to right, var(--accent-light) 7.5%, white 7.5%);
+    background: linear-gradient(
+      to right,
+      var(--accent-light) var(--completed),
+      white var(--completed)
+    );
   }
 
   #question-number {

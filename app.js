@@ -1,5 +1,5 @@
 const quesNum = document.getElementById("question-number");
-const amt = 15;
+const amt = 25;
 const url = `https://opentdb.com/api.php?amount=${amt}&category=18`;
 
 for (let i = 1; i <= amt; i++) {
@@ -79,16 +79,17 @@ function populate(text) {
     answers[i] = allQues[i].incorrect_answers;
     answers[i].push(allQues[i].correct_answer);
     if (answers[i][0] == "True" || answers[i][0] == "False") {
-      // answers[i][3] = answers[i][1];
+      answers[i][3] = answers[i][0];
+      answers[i][2] = answers[i][1];
     }
   }
-  answers.forEach((answer) => {
-    if (answer[0] == "False" || answer[0] == "True") {
-      //console.log(answer[0]);
-      answer[3] = answer[1];
-      answer[2] = answer[0];
-    }
-  });
+  // answers.forEach((answer) => {
+  //   if (answer[0] == "False" || answer[0] == "True") {
+  //     //console.log(answer[0]);
+  //     answer[3] = answer[1];
+  //     answer[2] = answer[0];
+  //   }
+  // });
   // console.log(answers);
 }
 
@@ -113,7 +114,7 @@ function selectQuestion(question) {
     );
   }
   //console.log(selectedAnswers);
-  setProgressBar();
+  //setProgressBar();
 }
 
 function selectOption(option) {
@@ -124,6 +125,7 @@ function selectOption(option) {
     }
   });
   setOption(option);
+  setProgressBar();
 }
 
 function setQuestion(num) {
